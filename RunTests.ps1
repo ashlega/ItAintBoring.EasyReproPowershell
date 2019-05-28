@@ -21,7 +21,7 @@ function Invoke-CreateAccount
 	}
 	catch
 	{
-	    $testingFailed = $true
+	    $script:testingFailed = $true
 	    $testResults.Add($testName, "Failed")
 	}
 	
@@ -48,6 +48,7 @@ foreach($key in $testResults.Keys)
    write-host "${key}: $($testResults[$key])"
 }
 
+write-host $testingFailed
 if(($testingFailed -eq $true) -and ($env:ThrowTestError -ne $null)) { throw "Testing failed!" }
 #$null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown')
 

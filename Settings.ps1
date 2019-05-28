@@ -6,3 +6,5 @@ if($Env:XrmUrl -eq $null)
 {
    $Env:XrmUrl = "https://treecatsoftware.crm3.dynamics.com"
 }
+
+#$env:ThrowTestError = $True
