@@ -16,3 +16,4 @@ steps:
     XrmUserName: $(xrmUserName)
     XrmUrl: $(XrmUrl)
     XrmPassword: $(XrmPassword)
+    ThrowTestError: $(ThrowTestError)
