@@ -49,6 +49,6 @@ foreach($key in $testResults.Keys)
 }
 
 write-host $testingFailed
-if(($testingFailed -eq $true) -and ($env:ThrowTestError -ne $null)) { throw "Testing failed!" }
+if(($testingFailed -eq $true) -and ($env:ThrowTestError -ne $null)) { exit 1 }
 #$null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown')
 
