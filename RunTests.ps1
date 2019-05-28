@@ -1,6 +1,5 @@
 Import-Module .\EasyRepro\EasyRepro.psm1 -Force
 
-#Load settings - comment out if using in pipelines
 .\Settings.ps1
 
 $testResults = @{}
