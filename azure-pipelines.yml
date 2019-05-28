@@ -7,13 +7,12 @@ trigger:
 - master
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'vs2017-win2016'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- powershell: $(Build.Repository.LocalPath)\RunTests.ps1       
+  workingDirectory: $(Build.Repository.LocalPath)
+  env: 
+    XrmUserName: $(xrmUserName)
+    XrmUrl: $(XrmUrl)
+    XrmPassword: $(XrmPassword)
