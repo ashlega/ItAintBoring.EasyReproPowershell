@@ -40,12 +40,14 @@ finally{
    Clear-XrmObjects
 }
 
-write-host "Testing Summary"
+write-host ""
+write-host "Testing Summary:"
+write-host ""
 foreach($key in $testResults.Keys)
 {
    write-host "${key}: $($testResults[$key])"
 }
 
-#if($testingFailed -eq $true) { throw "Testing failed!" }
+if(($testingFailed -eq $true) -and ($env:ThrowTestError)) { throw "Testing failed!" }
 #$null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown')
 
