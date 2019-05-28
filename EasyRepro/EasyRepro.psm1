@@ -1,8 +1,3 @@
-$script:XrmUserName = $env:XrmUser
-$script:XrmPassword = $env:XrmPassword
-$script:XrmUrl = $env:XrmUrl
-
-
 $script:XrmBrowser = $null
 $script:XrmApp = $null
 $script:WebClient = $null
@@ -10,17 +5,13 @@ $script:WebClient = $null
 
 
 function Start-XrmTesting{
-	
 	Register-EasyRepro
-    
-	if($script:XrmUserName -eq $null)
-	{
-	    $script:XrmUserName = "info@treecatsoftware.com"
-	}
-	if($script:XrmUrl -eq $null)
-	{
-	    $script:XrmUrl = "https://treecatsoftware.crm3.dynamics.com"
-	}
+	
+	$script:XrmUserName = $env:XrmUserName
+    $script:XrmPassword = $env:XrmPassword
+    $script:XrmUrl = $env:XrmUrl
+
+
 	if($script:XrmPassword -eq $null)
 	{
 	    $script:XrmPassword = Read-Host -assecurestring "Please enter your password"
@@ -44,8 +35,6 @@ function Clear-XrmObjects {
 	if($script:WebClient -ne $null){
       #$script:WebClient.Dispose()
 	}
-	
-	
 }
 
 function Open-XrmSubArea{

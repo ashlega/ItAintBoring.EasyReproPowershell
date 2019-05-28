@@ -1,5 +1,8 @@
 Import-Module .\EasyRepro\EasyRepro.psm1 -Force
 
+#Load settings - comment out if using in pipelines
+.\Settings.ps1
+
 $testResults = @{}
 $testingFailed = $false
 
@@ -44,6 +47,5 @@ foreach($key in $testResults.Keys)
 }
 
 #if($testingFailed -eq $true) { throw "Testing failed!" }
-
-$null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown')
+#$null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown')
 
