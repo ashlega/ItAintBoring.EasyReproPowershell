@@ -48,6 +48,6 @@ foreach($key in $testResults.Keys)
    write-host "${key}: $($testResults[$key])"
 }
 
-if(($testingFailed -eq $true) -and ($env:ThrowTestError)) { throw "Testing failed!" }
+if(($testingFailed -eq $true) -and ($env:ThrowTestError -ne $null)) { throw "Testing failed!" }
 #$null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown')
 
